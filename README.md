@@ -1,7 +1,7 @@
 # PocketCastsOSX
 An unoffical OSX wrapper for Pocketcasts
 
-* Makes play.pocketcasts.com a separate OSX app
+* Turns play.pocketcasts.com into a MacOS app with a dock icon and full screen mode
 * Use "keyboard light down" button (on F5) to play/pause
 * Use "keyboard light up" button (on F6) to skip 30 seconds
 
