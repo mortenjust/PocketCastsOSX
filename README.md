@@ -1,7 +1,7 @@
-# PocketCasts for MacOS
-An unoffical native wrapper for Pocketcasts
+# Pocket Casts for Mac
+An unoffical native wrapper for Pocket Casts
 
-* Turns play.pocketcasts.com into a MacOS app with a dock icon and full screen mode
+* Turns [Pocket Casts web player](http://play.pocketcasts.com) into a Mac app with a dock icon and full screen mode
 * Use "keyboard light down" button (on F5) to play/pause
 * Use "keyboard light up" button (on F6) to skip 30 seconds
 
