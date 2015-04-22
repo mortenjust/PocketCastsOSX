@@ -7,5 +7,7 @@ An unoffical OSX wrapper for Pocketcasts
 
 ![alt tag](https://raw.githubusercontent.com/mortenjust/PocketCastsOSX/master/Files/screenshot.png)
 
-Download here the app here
+Download the app here:
 https://github.com/mortenjust/PocketCastsOSX/releases
+
+Shoutout to [Kenneth](http://github.com/auchenberg) for digging out the Javascript hook
