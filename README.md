@@ -7,11 +7,11 @@ An unoffical OSX wrapper for Pocketcasts
 
 ![alt tag](https://raw.githubusercontent.com/mortenjust/PocketCastsOSX/master/Files/screenshot.png)
 
-## Where can I get it? 
+### Where can I get it? 
 https://github.com/mortenjust/PocketCastsOSX/releases
 
-## Why doesn't it use the actual Play and Skip buttons and headphone remote?
+### Why doesn't it use the actual Play and Skip buttons and headphone remote?
 That would be awesome. If you know how, please submit a pull request or get in touch
 
-## Anything else?
+### Anything else?
 Shoutout to [Kenneth](http://github.com/auchenberg) for digging out the Javascript functions
