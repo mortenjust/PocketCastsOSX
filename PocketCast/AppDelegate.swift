@@ -49,13 +49,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if u["action"] == "playPause" {
             println("playpause")
             webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').playPause()")
-
-        }
-        if u["action"] == "skip" {
-        println("skipping")
-        webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpForward()")
         }
 
+        if u["action"] == "skipForward" {
+            println("skipping forward")
+            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpForward()")
+        }
+
+        if u["action"] == "skipBack" {
+            println("skipping back")
+            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpBack()")
+        }
     }
 
     override func mediaKeyTap(mediaKeyTap : SPMediaKeyTap?, receivedMediaKeyEvent event : NSEvent) {
@@ -73,9 +77,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
                 case Int(NX_KEYTYPE_FAST):
                     NSNotificationCenter.defaultCenter().postNotificationName(
-                        "pocketEvent", object: NSApp, userInfo:["action":"skip"])
+                        "pocketEvent", object: NSApp, userInfo:["action":"skipForward"])
 
-                //case Int32(NX_KEYTYPE_REWIND):
+                case Int(NX_KEYTYPE_REWIND):
+                    NSNotificationCenter.defaultCenter().postNotificationName(
+                        "pocketEvent", object: NSApp, userInfo:["action":"skipBack"])
 
                 default:
                     break;
