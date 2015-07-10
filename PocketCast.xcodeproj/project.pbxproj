@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A441E3B01B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = A441E3AD1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m */; };
+		A441E3B11B4FF0BE008DBC37 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = A441E3AF1B4FF0BE008DBC37 /* SPMediaKeyTap.m */; };
 		C80F65D61ADE156C00277D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F65D51ADE156C00277D77 /* AppDelegate.swift */; };
 		C80F65D81ADE156C00277D77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80F65D71ADE156C00277D77 /* Images.xcassets */; };
 		C80F65DB1ADE156C00277D77 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80F65D91ADE156C00277D77 /* MainMenu.xib */; };
@@ -25,6 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A441E39E1B4FEF9E008DBC37 /* PocketCast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PocketCast-Bridging-Header.h"; sourceTree = "<group>"; };
+		A441E3AC1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
+		A441E3AD1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
+		A441E3AE1B4FF0BE008DBC37 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
+		A441E3AF1B4FF0BE008DBC37 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		C80F65D01ADE156C00277D77 /* PocketCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80F65D41ADE156C00277D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C80F65D51ADE156C00277D77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +42,6 @@
 		C80F65E61ADE156C00277D77 /* PocketCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCastTests.swift; sourceTree = "<group>"; };
 		C80F65F71ADE2BEE00277D77 /* MyApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyApplication.swift; path = PocketCast/MyApplication.swift; sourceTree = "<group>"; };
 		C80F65FA1ADE319300277D77 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		C80F66001ADE367F00277D77 /* PocketCast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PocketCast-Bridging-Header.h"; path = "PocketCast/PocketCast-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A441E3AA1B4FF0BE008DBC37 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				A441E3AB1B4FF0BE008DBC37 /* SPInvocationGrabbing */,
+				A441E3AE1B4FF0BE008DBC37 /* SPMediaKeyTap.h */,
+				A441E3AF1B4FF0BE008DBC37 /* SPMediaKeyTap.m */,
+			);
+			name = SPMediaKeyTap;
+			path = PocketCast/SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
+		A441E3AB1B4FF0BE008DBC37 /* SPInvocationGrabbing */ = {
+			isa = PBXGroup;
+			children = (
+				A441E3AC1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.h */,
+				A441E3AD1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m */,
+			);
+			path = SPInvocationGrabbing;
+			sourceTree = "<group>";
+		};
 		C80F65C71ADE156C00277D77 = {
 			isa = PBXGroup;
 			children = (
-				C80F66001ADE367F00277D77 /* PocketCast-Bridging-Header.h */,
 				C80F65FA1ADE319300277D77 /* MyPlayground.playground */,
 				C80F65F71ADE2BEE00277D77 /* MyApplication.swift */,
+				A441E3AA1B4FF0BE008DBC37 /* SPMediaKeyTap */,
 				C80F65D21ADE156C00277D77 /* PocketCast */,
 				C80F65E31ADE156C00277D77 /* PocketCastTests */,
 				C80F65D11ADE156C00277D77 /* Products */,
@@ -80,6 +106,7 @@
 		C80F65D21ADE156C00277D77 /* PocketCast */ = {
 			isa = PBXGroup;
 			children = (
+				A441E39E1B4FEF9E008DBC37 /* PocketCast-Bridging-Header.h */,
 				C80F65D51ADE156C00277D77 /* AppDelegate.swift */,
 				C80F65D71ADE156C00277D77 /* Images.xcassets */,
 				C80F65D91ADE156C00277D77 /* MainMenu.xib */,
@@ -212,8 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A441E3B01B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				C80F65F81ADE2BEE00277D77 /* MyApplication.swift in Sources */,
 				C80F65D61ADE156C00277D77 /* AppDelegate.swift in Sources */,
+				A441E3B11B4FF0BE008DBC37 /* SPMediaKeyTap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +438,7 @@
 				C80F65EC1ADE156C00277D77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C80F65ED1ADE156C00277D77 /* Build configuration list for PBXNativeTarget "PocketCastTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +447,7 @@
 				C80F65EF1ADE156C00277D77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

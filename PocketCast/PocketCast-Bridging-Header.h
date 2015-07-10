@@ -6,4 +6,5 @@
 //  Copyright (c) 2015 Morten Just Petersen. All rights reserved.
 //
 
-//#include "SPMediaKeyTap.h"
+#import "SPMediaKeyTap/SPMediaKeyTap.h"
+
