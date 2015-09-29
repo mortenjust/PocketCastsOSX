@@ -43,6 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+        return true;
+    }
+
     func gotNotification(notification : NSNotification){
         let u = notification.userInfo as! Dictionary<String,String>
 
