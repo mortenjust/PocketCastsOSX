@@ -51,17 +51,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let u = notification.userInfo as! Dictionary<String,String>
 
         if u["action"] == "playPause" {
-            println("playpause")
+            print("playpause")
             webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').playPause()")
         }
 
         if u["action"] == "skipForward" {
-            println("skipping forward")
+            print("skipping forward")
             webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpForward()")
         }
 
         if u["action"] == "skipBack" {
-            println("skipping back")
+            print("skipping back")
             webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpBack()")
         }
     }
