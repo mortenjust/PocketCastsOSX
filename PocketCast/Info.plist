@@ -30,5 +30,18 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>MyApplication</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>play.pocketcasts.com</key>
+			<dict>
+				<key>NSExceptionsAllowsInsecureHTTPLoads</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
