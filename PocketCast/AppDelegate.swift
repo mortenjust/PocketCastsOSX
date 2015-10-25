@@ -25,14 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
-
+        let window = NSApplication.sharedApplication().windows.first!
+        window.titlebarAppearsTransparent = true
+        window.title = ""
         window.movableByWindowBackground = true
-        //window.delegate = self
-        window.titleVisibility = NSWindowTitleVisibility.Hidden
-        window.titlebarAppearsTransparent = true;
-        window.styleMask |= NSFullSizeContentViewWindowMask;
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
