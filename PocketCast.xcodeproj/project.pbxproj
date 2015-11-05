@@ -41,7 +41,6 @@
 		C80F65E51ADE156C00277D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C80F65E61ADE156C00277D77 /* PocketCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCastTests.swift; sourceTree = "<group>"; };
 		C80F65F71ADE2BEE00277D77 /* MyApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyApplication.swift; path = PocketCast/MyApplication.swift; sourceTree = "<group>"; };
-		C80F65FA1ADE319300277D77 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +84,6 @@
 		C80F65C71ADE156C00277D77 = {
 			isa = PBXGroup;
 			children = (
-				C80F65FA1ADE319300277D77 /* MyPlayground.playground */,
 				C80F65F71ADE2BEE00277D77 /* MyApplication.swift */,
 				A441E3AA1B4FF0BE008DBC37 /* SPMediaKeyTap */,
 				C80F65D21ADE156C00277D77 /* PocketCast */,
