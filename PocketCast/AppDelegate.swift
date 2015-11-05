@@ -68,7 +68,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let keyCode = Int((event.data1 & 0xFFFF0000) >> 16);
         let keyFlags = (event.data1 & 0x0000FFFF);
         let keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-        let keyRepeat = (keyFlags & 0x1);
 
         if (keyIsPressed) {
             switch (keyCode) {
