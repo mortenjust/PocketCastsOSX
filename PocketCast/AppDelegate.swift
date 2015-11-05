@@ -45,22 +45,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func gotNotification(notification : NSNotification){
-        let u = notification.userInfo as! Dictionary<String,String>
-
-        if u["action"] == "playPause" {
-            print("playpause")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').playPause()")
-        }
-
-        if u["action"] == "skipForward" {
-            print("skipping forward")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpForward()")
-        }
-
-        if u["action"] == "skipBack" {
-            print("skipping back")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpBack()")
-        }
+		if let userInfo = notification.userInfo as? Dictionary<String,String> {
+			if let action = userInfo["action"] {
+				print("Got Notification \(action)")
+				let angularMediaPlayerSelector = "angular.element(document).injector().get('mediaPlayer')"
+				
+				switch(action) {
+					case "playPause":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).playPause()")
+					
+					case "skipForward":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).jumpForward()")
+					
+					case "skipBack":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).jumpBack()")
+					
+					default:
+						break
+				}
+			}
+		}
     }
 
     override func mediaKeyTap(mediaKeyTap : SPMediaKeyTap?, receivedMediaKeyEvent event : NSEvent) {
@@ -84,7 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         "pocketEvent", object: NSApp, userInfo:["action":"skipBack"])
 
                 default:
-                    break;
+                    break
             }
         }
     }
