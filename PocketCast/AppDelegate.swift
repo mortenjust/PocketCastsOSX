@@ -11,7 +11,7 @@ import WebKit
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
 
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var window: NSWindow!
@@ -34,11 +34,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
+        webView.policyDelegate = self
 
         mediaKeyTap = SPMediaKeyTap(delegate: self)
         if (SPMediaKeyTap.usesGlobalMediaKeyTap()) {
             mediaKeyTap!.startWatchingMediaKeys()
         }
+    }
+    
+    func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
+        NSWorkspace.sharedWorkspace().openURL(request.URL!)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
