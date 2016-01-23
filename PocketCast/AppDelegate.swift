@@ -45,22 +45,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func gotNotification(notification : NSNotification){
-        let u = notification.userInfo as! Dictionary<String,String>
-
-        if u["action"] == "playPause" {
-            print("playpause")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').playPause()")
-        }
-
-        if u["action"] == "skipForward" {
-            print("skipping forward")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpForward()")
-        }
-
-        if u["action"] == "skipBack" {
-            print("skipping back")
-            webView.stringByEvaluatingJavaScriptFromString("angular.element(document).injector().get('mediaPlayer').jumpBack()")
-        }
+		if let userInfo = notification.userInfo as? Dictionary<String,String> {
+			if let action = userInfo["action"] {
+				print("Got Notification \(action)")
+				let angularMediaPlayerSelector = "angular.element(document).injector().get('mediaPlayer')"
+				
+				switch(action) {
+					case "playPause":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).playPause()")
+					
+					case "skipForward":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).jumpForward()")
+					
+					case "skipBack":
+						webView.stringByEvaluatingJavaScriptFromString(
+							"\(angularMediaPlayerSelector).jumpBack()")
+					
+					default:
+						break
+				}
+			}
+		}
     }
 
     func applicationDockMenu(sender: NSApplication) -> NSMenu? {
@@ -80,7 +87,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let keyCode = Int((event.data1 & 0xFFFF0000) >> 16);
         let keyFlags = (event.data1 & 0x0000FFFF);
         let keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-        let keyRepeat = (keyFlags & 0x1);
 
         if (keyIsPressed) {
             switch (keyCode) {
@@ -96,7 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         "pocketEvent", object: NSApp, userInfo:["action":"skipBack"])
 
                 default:
-                    break;
+                    break
             }
         }
     }

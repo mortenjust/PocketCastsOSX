@@ -264,18 +264,6 @@ NSString *kIgnoreMediaKeysDefaultsKey = @"SPIgnoreMediaKeys";
 {
 	if([_mediaKeyAppList count] == 0) return;
 	
-	/*NSLog(@"--");
-	int i = 0;
-	for (NSValue *psnv in _mediaKeyAppList) {
-		ProcessSerialNumber psn; [psnv getValue:&psn];
-		NSDictionary *processInfo = [(id)ProcessInformationCopyDictionary(
-			&psn,
-			kProcessDictionaryIncludeAllInformationMask
-		) autorelease];
-		NSString *bundleIdentifier = [processInfo objectForKey:(id)kCFBundleIdentifierKey];
-		NSLog(@"%d: %@", i++, bundleIdentifier);
-	}*/
-	
     ProcessSerialNumber mySerial, topSerial;
 	GetCurrentProcess(&mySerial);
 	[[_mediaKeyAppList objectAtIndex:0] getValue:&topSerial];
