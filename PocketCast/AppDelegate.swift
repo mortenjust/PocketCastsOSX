@@ -63,6 +63,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    func applicationDockMenu(sender: NSApplication) -> NSMenu? {
+        let menu = NSMenu(title: "Play Control")
+        let item = NSMenuItem(title: "Play/Pause", action: "playPause", keyEquivalent: "P")
+        menu.addItem(item)
+        return menu
+    }
+    
+    func playPause(){
+        NSNotificationCenter.defaultCenter().postNotificationName(
+            "pocketEvent", object:NSApp, userInfo:["action":"playPause"])
+    }
+    
     override func mediaKeyTap(mediaKeyTap : SPMediaKeyTap?, receivedMediaKeyEvent event : NSEvent) {
 
         let keyCode = Int((event.data1 & 0xFFFF0000) >> 16);
@@ -73,8 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (keyIsPressed) {
             switch (keyCode) {
                 case Int(NX_KEYTYPE_PLAY):
-                    NSNotificationCenter.defaultCenter().postNotificationName(
-                        "pocketEvent", object:NSApp, userInfo:["action":"playPause"])
+                    playPause()
 
                 case Int(NX_KEYTYPE_FAST):
                     NSNotificationCenter.defaultCenter().postNotificationName(

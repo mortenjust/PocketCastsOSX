@@ -120,7 +120,8 @@ static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEv
 {
 	return [NSArray arrayWithObjects:
 		[[NSBundle mainBundle] bundleIdentifier], // your app
-		@"com.spotify.client",
+        @"com.mortenjust.PocketCast",
+        @"com.spotify.client",
 		@"com.apple.iTunes",
 		@"com.apple.QuickTimePlayerX",
 		@"com.apple.quicktimeplayer",
