@@ -140,11 +140,8 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="254" y="148" width="980" height="540"/>
-<<<<<<< HEAD
+
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
-=======
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
->>>>>>> 5b99f3930b4b94c515203482bee7aad6edd8fa45
             <value key="minSize" type="size" width="980" height="540"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="980" height="540"/>

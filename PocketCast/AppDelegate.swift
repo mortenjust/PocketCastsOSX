@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             [kMediaKeyUsingBundleIdentifiersDefaultsKey : SPMediaKeyTap.defaultMediaKeyUserBundleIdentifiers()])
     }
 
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         let window = NSApplication.sharedApplication().windows.first!
         window.titlebarAppearsTransparent = true
