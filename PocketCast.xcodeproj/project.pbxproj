@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2847F8371CB52BDA00C79EFE /* WebViewWithKeyboardEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2847F8361CB52BDA00C79EFE /* WebViewWithKeyboardEvents.swift */; };
 		A441E3B01B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = A441E3AD1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m */; };
 		A441E3B11B4FF0BE008DBC37 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = A441E3AF1B4FF0BE008DBC37 /* SPMediaKeyTap.m */; };
 		C80F65D61ADE156C00277D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F65D51ADE156C00277D77 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2847F8361CB52BDA00C79EFE /* WebViewWithKeyboardEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewWithKeyboardEvents.swift; sourceTree = "<group>"; };
 		A441E39E1B4FEF9E008DBC37 /* PocketCast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PocketCast-Bridging-Header.h"; sourceTree = "<group>"; };
 		A441E3AC1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		A441E3AD1B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		C80F65D21ADE156C00277D77 /* PocketCast */ = {
 			isa = PBXGroup;
 			children = (
+				2847F8361CB52BDA00C79EFE /* WebViewWithKeyboardEvents.swift */,
 				A441E39E1B4FEF9E008DBC37 /* PocketCast-Bridging-Header.h */,
 				C80F65D51ADE156C00277D77 /* AppDelegate.swift */,
 				C80F65D71ADE156C00277D77 /* Images.xcassets */,
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2847F8371CB52BDA00C79EFE /* WebViewWithKeyboardEvents.swift in Sources */,
 				A441E3B01B4FF0BE008DBC37 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				C80F65F81ADE2BEE00277D77 /* MyApplication.swift in Sources */,
 				C80F65D61ADE156C00277D77 /* AppDelegate.swift in Sources */,
