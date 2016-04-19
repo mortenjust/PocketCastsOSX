@@ -46,10 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         NSWorkspace.sharedWorkspace().openURL(request.URL!)
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
-        return true;
-    }
-
     func gotNotification(notification : NSNotification){
 		if let userInfo = notification.userInfo as? Dictionary<String,String> {
 			if let action = userInfo["action"] {
@@ -111,6 +107,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
                     break
             }
         }
+    }
+    
+    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if (flag) {
+            self.window.orderFront(self)
+        } else {
+            self.window .makeKeyAndOrderFront(self)
+        }
+        
+        return true
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
