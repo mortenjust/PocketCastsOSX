@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.title = ""
         window.movableByWindowBackground = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.gotNotification(_:)), name: "pocketEvent", object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
         webView.policyDelegate = self
@@ -44,10 +44,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
     
     func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
         NSWorkspace.sharedWorkspace().openURL(request.URL!)
-    }
-
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
-        return true;
     }
 
     func gotNotification(notification : NSNotification){
@@ -78,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
 
     func applicationDockMenu(sender: NSApplication) -> NSMenu? {
         let menu = NSMenu(title: "Play Control")
-        let item = NSMenuItem(title: "Play/Pause", action: "playPause", keyEquivalent: "P")
+        let item = NSMenuItem(title: "Play/Pause", action: #selector(AppDelegate.playPause), keyEquivalent: "P")
         menu.addItem(item)
         return menu
     }
@@ -111,6 +107,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
                     break
             }
         }
+    }
+    
+    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if (flag) {
+            self.window.orderFront(self)
+        } else {
+            self.window .makeKeyAndOrderFront(self)
+        }
+        
+        return true
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
