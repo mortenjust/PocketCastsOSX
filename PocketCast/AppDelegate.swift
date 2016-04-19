@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.title = ""
         window.movableByWindowBackground = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.gotNotification(_:)), name: "pocketEvent", object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
         webView.policyDelegate = self
@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
 
     func applicationDockMenu(sender: NSApplication) -> NSMenu? {
         let menu = NSMenu(title: "Play Control")
-        let item = NSMenuItem(title: "Play/Pause", action: "playPause", keyEquivalent: "P")
+        let item = NSMenuItem(title: "Play/Pause", action: #selector(AppDelegate.playPause), keyEquivalent: "P")
         menu.addItem(item)
         return menu
     }
