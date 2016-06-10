@@ -31,6 +31,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.title = ""
         window.movableByWindowBackground = true
         
+        // let repFileName = window.representedFilename
+        let repFileName = "mainWindow"
+        print("repfile: \(repFileName)")
+        
+        
+        window.setFrameUsingName(repFileName)
+        window.setFrameAutosaveName(repFileName)
+        window.windowController?.shouldCascadeWindows = false
+        
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
