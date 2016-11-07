@@ -45,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
         webView.policyDelegate = self
+        webView.wantsLayer = true
 
         mediaKeyTap = SPMediaKeyTap(delegate: self)
         if (SPMediaKeyTap.usesGlobalMediaKeyTap()) {
