@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
 
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var window: NSWindow!
+    
 
     var mediaKeyTap: SPMediaKeyTap?
 
@@ -30,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.titlebarAppearsTransparent = true
         window.title = ""
         window.movableByWindowBackground = true
+        window.backgroundColor = NSColor(red: CGFloat(0xf4)/CGFloat(0xff), green: CGFloat(0x43)/CGFloat(0xff), blue: CGFloat(0x36)/CGFloat(0xff), alpha: 1.0)
         
         // let repFileName = window.representedFilename
         let repFileName = "mainWindow"
@@ -40,6 +42,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.setFrameAutosaveName(repFileName)
         window.windowController?.shouldCascadeWindows = false
         
+        window.releasedWhenClosed = false
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNotification:", name: "pocketEvent", object: nil)
 
@@ -53,12 +57,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         }
     }
     
+    @IBAction func newWindow(sender: NSMenuItem) {
+        window.makeKeyAndOrderFront(sender)
+    }
+    
     func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
         NSWorkspace.sharedWorkspace().openURL(request.URL!)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
-        return true;
+        return false;
+    }
+    
+    func applicationShouldHandleReopen(_sender: NSApplication,
+                                         hasVisibleWindows flag: Bool) -> Bool{
+        window.setIsVisible(true)
+        return true
     }
 
     func gotNotification(notification : NSNotification){
