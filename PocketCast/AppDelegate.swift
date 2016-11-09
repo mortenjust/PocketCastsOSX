@@ -61,6 +61,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         window.makeKeyAndOrderFront(sender)
     }
     
+    @IBAction func reloadPage(sender: AnyObject) {
+        webView.reload(sender)
+    }
+    
     func webView(webView: WebView!, decidePolicyForNewWindowAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
         NSWorkspace.sharedWorkspace().openURL(request.URL!)
     }

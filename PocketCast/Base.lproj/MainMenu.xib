@@ -307,6 +307,11 @@
                                     <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Reload Page" keyEquivalent="r" id="UeR-F5-GIx">
+                                <connections>
+                                    <action selector="reloadPage:" target="Voe-Tx-rLC" id="ol2-dj-1aF"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
