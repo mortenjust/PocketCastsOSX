@@ -4,6 +4,7 @@
 //
 //  Created by Morten Just Petersen on 4/14/15.
 //  Copyright (c) 2015 Morten Just Petersen. All rights reserved.
+//  Forked by Vasil Pendavinji on 11/6/2016
 //
 
 import Cocoa
@@ -11,11 +12,12 @@ import WebKit
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResourceLoadDelegate {
 
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var window: NSWindow!
-    
+    @IBOutlet weak var reloadButton: NSButton!
+    var loadedItems = 0
 
     var mediaKeyTap: SPMediaKeyTap?
 
@@ -44,12 +46,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         
         window.isReleasedWhenClosed = false
 
+        reloadButton.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.gotNotification(_:)), name: NSNotification.Name(rawValue: "pocketEvent"), object: nil)
 
         webView.mainFrameURL = "https://play.pocketcasts.com/"
         webView.policyDelegate = self
+        webView.resourceLoadDelegate = self
         webView.wantsLayer = true
+        
+        
 
         mediaKeyTap = SPMediaKeyTap(delegate: self)
         if (SPMediaKeyTap.usesGlobalMediaKeyTap()) {
@@ -65,8 +71,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate {
         webView.reload(sender)
     }
     
+    @IBAction func reloadButtonPressed(_ sender: Any) {
+        webView.reload(sender)
+    }
+    
     func webView(_ webView: WebView!, decidePolicyForNewWindowAction actionInformation: [AnyHashable: Any]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
         NSWorkspace.shared().open(request.url!)
+    }
+    
+    func webView(_: WebView!, resource: Any!, didFinishLoadingFrom: WebDataSource!) {
+        if let url = didFinishLoadingFrom.request.url, url.absoluteString == "https://play.pocketcasts.com/web/podcasts/index#/podcasts" {
+            reloadButton.isHidden = false
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
