@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MyApplication">
@@ -14,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="MyApplication"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PocketCast" customModuleProvider="target">
             <connections>
+                <outlet property="reloadButton" destination="5HL-V5-AyF" id="Tcb-tr-9wU"/>
                 <outlet property="webView" destination="6mA-qh-89b" id="flv-mh-EGv"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -306,6 +308,11 @@
                                     <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Reload Page" keyEquivalent="r" id="UeR-F5-GIx">
+                                <connections>
+                                    <action selector="reloadPage:" target="Voe-Tx-rLC" id="ol2-dj-1aF"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -328,6 +335,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="DIl-cC-cCs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="PocketCast" keyEquivalent="0" id="8Zi-yF-h3p">
+                                <connections>
+                                    <action selector="newWindow:" target="Voe-Tx-rLC" id="XhV-R1-Ne0"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
@@ -376,6 +388,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </webView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HL-V5-AyF">
+                        <rect key="frame" x="110" y="484" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="reload" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="FSQ-a3-eG7">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reloadButtonPressed:" target="Voe-Tx-rLC" id="s5Z-Ww-32M"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="6mA-qh-89b" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="CAe-cX-jYI"/>
@@ -391,4 +414,7 @@
             </userDefinedRuntimeAttributes>
         </window>
     </objects>
+    <resources>
+        <image name="reload" width="512" height="512"/>
+    </resources>
 </document>
