@@ -5,7 +5,7 @@ An unoffical native wrapper for Pocket Casts
 * Use the keyboard's Play/Pause (F8) to control the app
 * Use Skip (F7) goes back 10 seconds, Skip forward (F9) goes forward 30 seconds
 
--![alt tag](https://raw.githubusercontent.com/mortenjust/PocketCastsOSX/master/Files/screenshot.png)
+-![alt tag](https://raw.githubusercontent.com/mortenjust/PocketCastsOSX/master/Files/screen.png)
 
 ### Where can I get it? 
 https://github.com/mortenjust/PocketCastsOSX/releases
