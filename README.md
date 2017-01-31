@@ -5,10 +5,10 @@ An unoffical native wrapper for Pocket Casts
 * Use the keyboard's Play/Pause (F8) to control the app
 * Use Skip (F7) goes back 10 seconds, Skip forward (F9) goes forward 30 seconds
 
-![alt tag](https://raw.githubusercontent.com/bpenda/PocketCastsOSX/master/Files/screen.png)
+-![alt tag](https://raw.githubusercontent.com/mortenjust/PocketCastsOSX/master/Files/screenshot.png)
 
 ### Where can I get it? 
-https://github.com/bpenda/PocketCastsOSX/releases/
+https://github.com/mortenjust/PocketCastsOSX/releases
 
 ### Anything else?
-Forked from [Morten Just](https://github.com/mortenjust), shoutout to [Kenneth](http://github.com/auchenberg) for digging out the Javascript functions and @luryus for hooking up the media keyboard keys
+Shoutout to [Kenneth](http://github.com/auchenberg) for digging out the Javascript functions and @luryus for hooking up the media keyboard keys
