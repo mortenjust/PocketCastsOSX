@@ -189,8 +189,9 @@
 				TargetAttributes = {
 					C80F65CF1ADE156C00277D77 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = UDGLB23X37;
+						DevelopmentTeam = 7FQ3X6J325;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					C80F65DF1ADE156C00277D77 = {
 						CreatedOnToolsVersion = 6.3;
@@ -370,15 +371,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UDGLB23X37;
+				DEVELOPMENT_TEAM = 7FQ3X6J325;
 				INFOPLIST_FILE = PocketCast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mortenjust.PocketCasts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrieltriggs.PocketCasts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PocketCast/PocketCast-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -390,15 +392,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UDGLB23X37;
+				DEVELOPMENT_TEAM = 7FQ3X6J325;
 				INFOPLIST_FILE = PocketCast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mortenjust.PocketCasts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrieltriggs.PocketCasts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PocketCast/PocketCast-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
