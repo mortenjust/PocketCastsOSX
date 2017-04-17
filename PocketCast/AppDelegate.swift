@@ -17,7 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var reloadButton: NSButton!
+    
     var loadedItems = 0
+    let statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
 
     var mediaKeyTap: SPMediaKeyTap?
 
@@ -54,13 +56,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
         webView.policyDelegate = self
         webView.resourceLoadDelegate = self
         webView.wantsLayer = true
-        
-        
 
         mediaKeyTap = SPMediaKeyTap(delegate: self)
         if (SPMediaKeyTap.usesGlobalMediaKeyTap()) {
             mediaKeyTap!.startWatchingMediaKeys()
         }
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named: "StatusBarButtonImage")
+            button.image?.isTemplate = false
+        }
+        
+        let statusBarMenu = NSMenu()
+        statusBarMenu.addItem(withTitle: "Show", action: #selector(statusBarShow(_:)), keyEquivalent: "")
+        statusBarMenu.addItem(NSMenuItem.separator())
+        statusBarMenu.addItem(withTitle: "Play / Pause", action: #selector(statusBarPlayPause(_:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Forward 45 Seconds", action: #selector(statusBarForward(_:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Back 10 Seconds", action: #selector(statusBarBack(_:)), keyEquivalent: "")
+        statusBarMenu.addItem(NSMenuItem.separator())
+        statusBarMenu.addItem(withTitle: "Quit", action: #selector(statusBarQuit(_:)), keyEquivalent: "")
+        statusItem.menu = statusBarMenu
     }
     
     @IBAction func newWindow(_ sender: NSMenuItem) {
@@ -73,6 +88,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
     
     @IBAction func reloadButtonPressed(_ sender: Any) {
         webView.reload(sender)
+    }
+    
+    func statusBarShow(_ sender: AnyObject) {
+        print("clicked show")
+        window.makeKeyAndOrderFront(sender)
+    }
+    
+    //# TODO: add hide?
+    
+    func statusBarPlayPause(_ sender: AnyObject) {
+        print("clicked play / pause")
+        playPause()
+    }
+    
+    func statusBarForward(_ sender: AnyObject) {
+        print("clicked forward")
+        skipForward()
+    }
+    
+    func statusBarBack(_ sender: AnyObject) {
+        print("clicked back")
+        skipBack()
+    }
+    
+    func statusBarQuit(_ sender: AnyObject) {
+        print("clicked quit")
+        NSApplication.shared().terminate(self)
     }
     
     func webView(_ webView: WebView!, decidePolicyForNewWindowAction actionInformation: [AnyHashable: Any]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
@@ -128,9 +170,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
         return menu
     }
     
-    func playPause(){
+    func playPause() {
         NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "pocketEvent"), object:NSApp, userInfo:["action":"playPause"])
+            name: Notification.Name(rawValue: "pocketEvent"), object: NSApp, userInfo: ["action":"playPause"])
+    }
+    
+    func skipForward() {
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: "pocketEvent"), object: NSApp, userInfo: ["action":"skipForward"])
+    }
+    
+    func skipBack() {
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: "pocketEvent"), object: NSApp, userInfo: ["action":"skipBack"])
     }
     
     override func mediaKeyTap(_ mediaKeyTap : SPMediaKeyTap?, receivedMediaKeyEvent event : NSEvent) {
@@ -145,13 +197,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
                     playPause()
 
                 case Int(NX_KEYTYPE_FAST):
-                    NotificationCenter.default.post(
-                        name: Notification.Name(rawValue: "pocketEvent"), object: NSApp, userInfo:["action":"skipForward"])
+                    skipForward()
 
                 case Int(NX_KEYTYPE_REWIND):
-                    NotificationCenter.default.post(
-                        name: Notification.Name(rawValue: "pocketEvent"), object: NSApp, userInfo:["action":"skipBack"])
-
+                    skipBack()
                 default:
                     break
             }
@@ -161,7 +210,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, WebPolicyDelegate, WebResour
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
 }
 
