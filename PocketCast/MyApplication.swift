@@ -12,6 +12,7 @@ import Cocoa
 class MyApplication: NSApplication {
 
     override init() {
+        print("overriden, boom")
         super.init()
     }
 
